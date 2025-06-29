@@ -36,8 +36,10 @@ pub mod core;
 pub mod editor;
 pub mod icon;
 pub mod icon_theme;
+pub mod manager;
 pub mod svg;
 pub mod terminal;
+pub mod traits;
 pub mod ui;
 pub mod watcher;
 
@@ -1018,3 +1020,11 @@ impl LapceConfig {
         Some(())
     }
 }
+
+// Re-export the new configuration system for easy access
+pub use manager::LapceConfigManager;
+pub use traits::{
+    ConfigManager, CoreConfigProvider, EditorConfigProvider, UIConfigProvider,
+    ThemeConfigProvider, TerminalConfigProvider, PluginConfigProvider,
+    EditorConfigView, UIConfigView, ThemeConfigView, CoreConfigView,
+};
